@@ -1,0 +1,81 @@
+<div id="corrections_show">
+  <table id="header">
+    <tr>
+      <th class="part_name"><%= @check.part_name %></th>
+      <td>
+        <%= button_to t('back_to_list'), {:controller => 'equipment', :action => 'show_list_of_result', :id => @check.part.equipment_id}, {:class => "controll_button"} %>
+      </td>
+    </tr>
+  </table>
+  <% form_for(:correction, :url => {:action => 'update', :id => @check.id}, :html => {:id => "correction_form"}) do |f| %>
+    <table id="body">
+      <tr>
+        <th><%= t('activerecord.attributes.check.item') %></th>
+        <td class="read_only"><%= @check.item %></td>
+      </tr>
+      <tr>
+        <th><%= t('activerecord.attributes.check.operation') %></th>
+        <td class="read_only"><%= @check.operation %></td>
+      </tr>
+      <tr>
+        <th><%= t('activerecord.attributes.check.criterion') %></th>
+        <td class="read_only"><%= @check.criterion %>&nbsp;<%= @check.limit_description %></td>
+      </tr>
+      <tr>
+        <th><%= t('activerecord.attributes.result.judgment') %></th>
+        <td class="read_only">
+          <% if @check.entry_type == Check::ENTRY_TYPES["MEASURED_VALUE"] %>
+            <%= @check.result.measured_value_before_type_cast %>&nbsp;<%= @check.unit_name %>
+          <% else %>
+            <% if @check.result.judgment %>
+              <%= t('activerecord.attributes.result.options_caption.normal') %>
+            <% else %>
+              <%= t('activerecord.attributes.result.options_caption.abnormal') %>
+            <% end %>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <th><%= t('activerecord.attributes.inspection.staff_code') %></th>
+        <td class="read_only"><%= @check.inspection.staff_code %></td>
+      </tr>
+      <tr>
+        <th><%= t('activerecord.attributes.result.checked_datetime') %></th>
+        <td class="read_only"><%= format_datetime(@check.result.checked_datetime) %></td>
+      </tr>
+      <tr>
+        <th><%= t('activerecord.attributes.result.abnormal_content') %></th>
+        <td><%= text_field_tag "correction[abnormal_content]", @check.result.abnormal_content, :maxlength => 140, :size => 140 %></td>
+      </tr>
+      <tr>
+        <th><%= t('activerecord.attributes.result.corrective_action') %></th>
+        <td>
+          <% Result::CORRECTIVE_ACTION_VALUES.each_pair do |key, value| %>
+            <%= radio_button_tag "correction[corrective_action]", value, @check.result.corrective_action == value || false %>
+            <%= content_tag :label, t("activerecord.attributes.result.options_caption.#{key.downcase}"), :onclick => uncheck_radio_button_js('correction_form', "correction_corrective_action_#{value}") %>
+            &nbsp;&nbsp;&nbsp;
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <th><%= t('activerecord.attributes.result.corrective_content') %></th>
+        <td><%= text_field_tag "correction[corrective_content]", @check.result.corrective_content, :maxlength => 140, :size => 140 %></td>
+      </tr>
+      <tr>
+        <th><%= t('activerecord.attributes.result.staff_code') %></th>
+        <td><%= text_field_tag "correction[staff_code]", @check.result.staff_code, :maxlength => 7, :size => 11 %></td>
+      </tr>
+      <tr>
+        <th><%= t('activerecord.attributes.result.corrected_datetime') %></th>
+        <td><%= text_field_tag "correction[corrected_datetime]", format_datetime(@check.result.corrected_datetime), :maxlength => 19, :size => 37 %></td>
+      </tr>
+    </table>
+    <table id="footer">
+      <tr>
+        <td>
+          <%= submit_tag t('correspondence_completion'), {:class => "controll_button"} %>
+        </td>
+      </tr>
+    </table>
+  <% end %>
+</div>

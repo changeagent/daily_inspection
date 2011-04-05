@@ -1,0 +1,25 @@
+<div id="equipment_list">
+  <% unless @station.nil? %>
+    <table>
+      <tr class="selected_station_name">
+        <td id="station_name" colspan="4"><%=h @station.name %></td>
+      </tr>
+      <% if @station.equipment.size == 0 %>
+        <tr>
+          <td><%= t('errors.views.stations.index.no_registration_equipment') %></td>
+        </tr>
+      <% end %>
+    </table>
+    <div id="equipment_table_area">
+      <table>
+        <% @station.equipment.each_with_index do |equipment, i| %>
+          <%= "<tr class=\"equipment_row\">" if i % 4 == 0 %>
+            <td class="equipment_name">
+              <%= link_to equipment.name, {:controller => "equipment", :action => action_name, :id => equipment.id} %>
+            </td>
+          <%= "</tr>" if i % 4 == 3 || (i + 1) == @station.equipment.size %>
+        <% end %>
+      </table>
+    </div>
+  <% end %>
+</div>

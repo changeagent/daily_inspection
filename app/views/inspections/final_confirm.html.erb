@@ -1,0 +1,13 @@
+<div id="inspections_final_confirm">
+  <% form_for(:inspection, :url => {:action => 'update', :id => @inspection.id}) do |f| %>
+    <table id="body">
+      <tr>
+        <th><%=h t('activerecord.attributes.inspection.staff_code') %></th>
+        <td>
+          <%= f.text_field :staff_code, :maxlength => 7, :size => 12, :style => "float:left", :value => @inspection.staff_code || session[:staff_code] %>
+          <%=submit_tag t('update_inspection'), {:class => "controll_button", :style => "margin-left:5px"} %>
+        </td>
+      </tr>
+    </table>
+  <% end %>
+</div>

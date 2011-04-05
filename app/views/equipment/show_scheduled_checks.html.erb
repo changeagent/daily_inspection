@@ -1,0 +1,52 @@
+<div id="equipment_show_scheduled_checks">
+  <table id="header">
+    <tr>
+      <td colspan="4">
+        <%= button_to t('stations_select'), {:controller => 'stations', :action => 'operator_index'}, {:class => "controll_button"} %>
+      </td>
+    </tr>
+    <tr class="scheduled_header">
+      <th class="cycle_title">
+        <%=h t('activerecord.attributes.cycle.title') %>
+      </th>
+      <th class="part_name">
+        <%=h t('activerecord.attributes.part.name') %>
+      </th>
+      <th class="check_item">
+        <%=h t('activerecord.attributes.check.item') %>
+      </th>
+      <th class="check_latest_judgment">
+        <%=h t('activerecord.attributes.check.latest_judgment') %>
+      </th>
+    </tr>
+  </table>
+  <% form_for(:check, :url => {:action => 'start_inspection', :id => params[:id]}, :html => {:id => "check_form"}) do |f| %>
+    <div id="parts_and_checks">
+      <table id="body">
+        <% @scheduled_checks.each do |check| %>
+          <tr class="scheduled_row">
+            <td class="cycle_title">
+              <%=h check.cycle.title %>
+            </td>
+            <td class="part_name">
+              <%=h check.part.name %>
+            </td>
+            <td class="check_item">
+              <%=h check.item %>
+            </td>
+            <td class="check_latest_judgment">
+              <%=h Result::JUDGMENT_SYMBOLS[check.latest_judgment] %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+      <table id="footer">
+        <tr>
+          <td>
+            <%=submit_tag t('equipments_start_inspection'), {:class => "controll_button"} %>
+          </td>
+        </tr>
+      </table>
+    </div>
+  <% end %>
+</div>

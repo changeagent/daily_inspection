@@ -1,0 +1,67 @@
+<div id="checks_show">
+  <% form_for(:check, :url => {:action => 'next', :id => @check.id}, :html => {:id => "check_form"}) do |f| %>
+    <table id="header">
+      <tr>
+        <th>
+          <%=button_to_function t('prev'), "document.forms['check_form'].action='#{url_for(:action => :previous, :id => @check.id)}';document.forms['check_form'].submit()", {:class => "controll_button"} unless @check.first? %>
+        </th>
+        <td>
+          <%=h @check.part.name %>
+        </td>
+        <th>
+          <%=submit_tag t('next'), {:class => "controll_button"} %>
+        </th>
+      </tr>
+    </table>
+    <table id="body">
+      <!-- 点検内容の表示欄 -->
+      <tr>
+        <th><%=h t('activerecord.attributes.check.item') %></th>
+        <td><%=h @check.item %></td>
+      </tr>
+      <tr>
+        <th><%=h t('activerecord.attributes.check.operation') %></th>
+        <td><%=h @check.operation %></td>
+      </tr>
+      <tr>
+        <th><%=h t('activerecord.attributes.check.criterion') %></th>
+        <td>
+          <%=h @check.criterion %>&nbsp;
+          <%=h @check.limit_description %>
+        </td>
+      </tr>
+      <!-- 点検結果の入力欄 -->
+      <tr>
+        <th><%=h t('activerecord.attributes.result.judgment') %></th>
+        <td>
+          <% if @check.entry_type == Check::ENTRY_TYPES["MEASURED_VALUE"] %>
+            <%= text_field_tag "result[measured_value]", @result.measured_value_before_type_cast, :maxlength => 10, :size => 11 %>
+            <%= @check.unit_name %>
+          <% else %>
+            <%= radio_button_tag "result[judgment]", true, @result.judgment || false %>
+            <%= content_tag :label, t('activerecord.attributes.result.options_caption.normal'), :onclick => uncheck_radio_button_js('check_form', 'result_judgment_true') %>
+            &nbsp;&nbsp;&nbsp;
+            <%= radio_button_tag "result[judgment]", false, @result.judgment == false || false %>
+            <%= content_tag :label, t('activerecord.attributes.result.options_caption.abnormal'), :onclick => uncheck_radio_button_js('check_form', 'result_judgment_false') %>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <th><%=h t('activerecord.attributes.result.abnormal_content')%></th>
+        <td>
+          <%= text_field_tag "result[abnormal_content]", @result.abnormal_content, :maxlength => 140, :size => 150 %>
+        </td>
+      </tr>
+      <tr>
+        <th><%=h t('activerecord.attributes.result.corrective_action')%></th>
+        <td>
+          <% Result::CORRECTIVE_ACTION_VALUES.each_pair do |key, value| %>
+            <%= radio_button_tag "result[corrective_action]", value, @result.corrective_action == value || false %>
+            <%= content_tag :label, t("activerecord.attributes.result.options_caption.#{key.downcase}"), :onclick => uncheck_radio_button_js('check_form', "result_corrective_action_#{value}") %>
+            &nbsp;&nbsp;&nbsp;
+          <% end %>
+        </td>
+      </tr>
+    </table>
+  <% end %>
+</div>

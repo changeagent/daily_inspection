@@ -1,0 +1,270 @@
+html {
+    overflow-y:hidden;/*縦スクロール非表示*/
+    overflow-x:hidden;  /*横スクロール非表示*/
+}
+
+body { margin: 0px }
+
+a {text-decoration:none}
+a:hover {text-decoration:underline}
+
+#core {
+    padding: 0px;
+    margin: 0px;
+    width: 1024px;
+    height: 768px;
+    background: #fff;
+}
+
+/* stations/ladder_index */
+
+#stations_index {
+    width: 1024px;
+    height: 768px;
+}
+#station_list {
+    float: left;
+    width: 300px;
+    height: 77%;
+    overflow-y:scroll;
+    overflow-x:hidden;  /*横スクロール非表示*/
+}
+#equipment_list {
+    float:right;
+    width: 724px;
+    height: 98%;
+    overflow-x:hidden;   /*横スクロール非表示*/
+}
+#station_table_area {
+    background-color: #eee;
+}
+
+#equipment_table_area {
+    height: 70%;
+    width: 720px;
+    background-color: #eee;
+    overflow-y: scroll;
+}
+
+#station_list table {
+    width: 100%;
+}
+
+#station_list td.station_selector {
+    background-color: #ccc;
+    text-align: center;
+    height: 60px;
+    width: 100%;
+    font-size: 18pt;
+    line-height: 100%;
+}
+
+#equipment_list table {
+    width: 700px;
+}
+
+#equipment_list td {
+    text-align:left;
+    font-size: 18pt;
+    height: 60px;
+    line-height: 100%;
+}
+
+#equipment_list td#station_name {
+    font-size: 20pt;
+    line-height: 100%;
+    background-color: #ccc;
+}
+
+#equipment_list td.equipment_name {
+    width: 200px;
+    text-align:center;
+    font-size:18pt;
+}
+
+/* equipment/show_list_of_result */
+
+#equipment_show_list_of_result {
+    width: 1020px;
+    background: #ccc;
+    overflow-x:hidden;  /*横スクロール非表示*/
+}
+
+#equipment_show_list_of_result #menu {
+    width: 1000px;
+    background: #ccc;
+    height: 50px;
+    border-style: none;
+    border-width: thin;
+    border-collapse: collapse;
+}
+
+#equipment_show_list_of_result #header {
+    width: 1000px;
+    background: #ccc;
+    height: 50px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000;
+    border-collapse: collapse;
+}
+
+#equipment_show_list_of_result #scroll_data {
+    width: 1000px;
+    background: #fff;
+    border-top-style: none;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000;
+    border-collapse: collapse;
+    overflow-x:hidden;  /*横スクロール非表示*/
+}
+
+#equipment_show_list_of_result table#menu tr.menu_row {}
+#equipment_show_list_of_result #header_area table#header tr.header_row {}
+#equipment_show_list_of_result #scroll_data_area table#scroll_data tr.scroll_data_row {}
+
+#equipment_show_list_of_result .controll_button {
+    float: right;
+    font-size: 18pt;
+}
+
+#equipment_show_list_of_result .cycle_title {
+    width: 45px;
+    font-size: 10pt;
+    text-align: center;
+}
+
+#equipment_show_list_of_result .part_name {
+    width: 200px;
+    font-size: 10pt;
+}
+
+#equipment_show_list_of_result .check_item {
+    width: 200px;
+    font-size: 10pt;
+}
+
+#equipment_show_list_of_result .check_date {
+    width: 75px;
+    font-size: 10pt;
+    text-align: center;
+}
+
+#equipment_show_list_of_result .check_shift {
+    width: 23px;
+    font-size: 10pt;
+    text-align: center;
+}
+
+#equipment_show_list_of_result #header th {
+    text-align: center;
+    height: 50px;
+    white-space: nowrap;
+    background: #ddd;
+    border: 1px;
+    border-style: solid;
+    border-collapse: collapse;
+}
+
+#equipment_show_list_of_result #scroll_data td {
+    background: #eee;
+    border: 1px;
+    border-style: solid;
+    border-collapse: collapse;
+}
+
+#equipment_show_list_of_result #scroll_data_area {
+    float: left;
+    width: 100%;
+    height: 475px;
+    overflow-y: scroll;
+    overflow-x:hidden;  /*    横スクロール非表示*/
+}
+
+#equipment_show_list_of_result #header_area {
+    float: left;
+    width: 100%;
+    overflow-x:hidden;  /*    横スクロール非表示*/
+}
+
+/* corrections/show */
+
+#corrections_show {
+    height: 100%;
+    overflow-x:hidden;  /*    横スクロール非表示*/
+}
+
+#corrections_show #header {
+    float: left;
+    width: 1014px;
+    background: #ccc;
+}
+
+#corrections_show #header th {
+   background: #ddd;
+   text-align: center;
+   width: 100%;
+    -webkit-border-radius: 10px;	/* Safari、Google Chrome */
+    -moz-border-radius: 10px;	/* Firefox */
+    -border-radius: 10px;	/*	css3 */
+}
+
+#corrections_show #header td {
+    background: #bbb;
+    font-size: 10pt;
+    text-align: center;
+    line-height: 35px;
+}
+
+#corrections_show .controll_button {
+    float: right;
+    font-size: 18pt;
+}
+
+#corrections_show #body {
+    float: left;
+    width: 1014px;
+    background: #ccc;
+}
+
+#corrections_show #body th td {
+    -webkit-border-radius: 10px;	/* Safari、Google Chrome */
+    -moz-border-radius: 10px;	/* Firefox */
+    -border-radius: 10px;	/*	css3 */
+}
+
+#corrections_show #body th {
+    font-size: 10pt;
+    background: #ddd;
+    white-space: nowrap;
+}
+
+#corrections_show #body td {
+    font-size: 10pt;
+    line-height: 24px;
+    background: #eee;
+    padding: 8px;
+}
+
+#corrections_show #body .result_content {
+    font-size: 10pt;
+    width: 860px;
+    padding: 8px;
+}
+
+#corrections_show #body .result_staff_code {
+    font-size: 10pt;
+    padding: 8px;
+}
+
+#corrections_show #body .result_corrected_datetime {
+    font-size: 10pt;
+    padding: 8px;
+}
+
+#corrections_show #footer {
+    float: left;
+    width: 1014px;
+    background: #ccc;
+}

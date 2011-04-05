@@ -1,0 +1,40 @@
+<div id="equipment_show_list_of_result">
+  <table id="menu">
+    <tr class="menu_row">
+      <td>
+        <%= button_to t('stations_select'), {:controller => 'stations', :action => 'ladder_index'}, {:class => "controll_button"} %>
+      </td>
+    </tr>
+  </table>
+  <div id="header_area">
+    <table id="header">
+      <tr class="header_row">
+        <th class="cycle_title"><%=h t('activerecord.attributes.cycle.title') %></th>
+        <th class="part_name"><%=h t('activerecord.attributes.part.name') %></th>
+        <th class="check_item"><%=h t('activerecord.attributes.check.item') %></th>
+        <% 7.times do |t| %>
+          <th class="check_date"><%=  (@today - (6 - t)).strftime("%m/%d") %></th>
+        <% end %>
+      </tr>
+    </table>
+  </div>
+  <div id="scroll_data_area">
+    <table id="scroll_data">
+      <% @checks.each do |check| %>
+        <tr class="scroll_data_row">
+          <% check.each_with_index do |chk, idx| %>
+            <% if idx == 0 %>
+              <td class="cycle_title"><%=h check[idx].cycle.title %></td>
+              <td class="part_name"><%=h check[idx].part.name %></td>
+              <td class="check_item"><%=h check[idx].item %></td>
+            <% else %>
+              <% chk.each do |c| %>
+                <td class="check_shift"><%=h link_corrections_show(c.id, c.judgment) unless c.nil? %></td>
+              <% end %>
+            <% end %>
+          <% end %>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

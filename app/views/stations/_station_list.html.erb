@@ -1,0 +1,13 @@
+<div id="station_list">
+  <div id="station_table_area">
+    <table>
+      <% @stations.each do |station| %>
+        <tr class="station_row">
+          <td class="station_selector">
+            <%= link_to station.name, {:action => action_name, :id => station.id} %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,66 @@
+ja:
+  prev: "前へ"
+  next: "次へ"
+  update_inspection: "点検結果を保存する"
+  stations_select: "メニューへ"
+  equipments_start_inspection: "点検開始"
+  back_to_list: "一覧に戻る"
+  correspondence_completion: "対応完了"
+
+  errors:
+    controllers:
+      equipment:
+        show_scheduled_checks:
+          does_not_found: "点検予定の内容がありません。"
+        show_list_of_result:
+          does_not_found: "点検項目がありません。"
+    views:
+      stations:
+        index:
+          no_registration_equipment: "登録されている設備はありません。"
+
+  activerecord:
+    errors:
+      models:
+        inspection:
+          check_result_was_invalid: "番目の点検結果内容を見直してください。"
+          has_not_been_checked: "番目の点検を実施してください。"
+        check:
+          cannot_update_scheduled_datetime_because_cycle_was_invalid: "周期が正しくないため、次回点検日時が更新できませんでした。"
+        result:
+          corrected_date_format_was_invalid: "対応日時には、日付、時間を入力してください。"
+
+    attributes:
+      inspection:
+        staff_code: 点検者氏名コード
+
+      check:
+        item: 項目
+        operation: 方法
+        criterion: 基準
+        entry_type: 点検種別
+        unit_name: 単位名称
+        order: 順位
+        latest_judgment: 前回結果
+
+      result:
+        judgment: 点検結果
+        measured_value: 点検結果
+        abnormal_content: 異常内容
+        corrective_action: 対応・処置
+        options_caption:
+          normal: 正常
+          abnormal: 異常
+          exchange: 交換
+          adjustment: 調整
+          cleaning: 清掃
+        checked_datetime: 点検日時
+        corrective_content: 対応内容
+        staff_code: 対応者氏名コード
+        corrected_datetime: 対応日時
+
+      part:
+        name: 部位
+
+      cycle:
+        title: 周期

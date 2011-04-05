@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <style type="text/css">
+      a {
+        color: #ffffff;
+        padding: 5px;
+        text-decoration:none;
+        background-color:#6699aa;
+        border: solid 1px #cccccc;
+        border-radius:10px;
+        -moz-border-radius:10px;
+        -webkit-border-radius:10px;
+        width: 500px;
+      }
+      a:hover {
+        color: #6688aa;
+        background-color:#eeeeee;
+      }
+      ul {list-style-type:none}
+      li {
+        font-size: 200%;
+        margin: 10px;
+        padding: 10px;
+      }
+    </style>
+    <script type="text/javascript">
+      function init_daily_inspection(url) {
+        name = "daily_inspection";
+        options = "'fullscreen=yes, menubar=no, location=no, directories=no, toolbar=no, scrollbars=no'";
+        options = options+",width="+screen.width+",height="+screen.height+",top=0,left=0";
+        window.open(url, name, options);
+      }
+    </script>
+    <title>日常点検システム</title>
+  </head>
+  <body>
+    <ul>
+      <li>
+        <a href="#" onclick="javascript:init_daily_inspection('<%= url_for(:controller => "stations", :action => "operator_index") %>')">日常点検メニュー</a>
+      </li>
+      <li class="menu">
+        <%= link_to "日常点検確認メニュー", :controller => "stations", :action => "ladder_index" %>
+      </li>
+    </ul>
+  </body>
+</html>
