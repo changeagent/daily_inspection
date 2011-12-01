@@ -12,8 +12,15 @@ a:hover {text-decoration:underline}
     padding: 0px;
     margin: 0px;
     width: 1015px;
-    height: 600px;
+    height: 500px;
     background: #fff;
+}
+
+div#shared_footer {
+  clear: left;
+  width: 100%;
+  height: 120px;
+  background-color: #000;
 }
 
 #checks_show {
@@ -51,6 +58,7 @@ a:hover {text-decoration:underline}
 #checks_show #body {
     width: 100%;
     background: #ccc;
+    height: 480px;
 }
 
 #checks_show #body th, td {
@@ -89,7 +97,8 @@ a:hover {text-decoration:underline}
 
 #inspections_final_confirm {
     width: 100%;
-    background: #f00;
+    height: 545px;
+    background-color: #ddd;
 }
 
 #inspections_final_confirm #body {
@@ -131,7 +140,8 @@ a:hover {text-decoration:underline}
 /* equipment/show_scheduled_checks */
 
 #equipment_show_scheduled_checks {
-    width: 100%;
+    /* width: 100%; */
+    width: 980px; 
     background: #999;
 }
 
@@ -202,9 +212,10 @@ a:hover {text-decoration:underline}
 }
 
 #equipment_show_scheduled_checks #parts_and_checks {
-    width: 1014px; 
-    height: 360px;
+    width: 980px; 
+    height: 434px;
     overflow-y:auto;
+    background-color: #ccc;
 }
 
 /* stations/index, stations/show_equipment */
@@ -224,15 +235,15 @@ a:hover {text-decoration:underline}
     background-color: #eee;
 }
 #station_table_area {
-    height: 485px;
+    height: 541px;
     background-color: #eee;
     overflow-y:auto;
 }
 #equipment_table_area {
-    height: 420px;
-    width: 712px;
+    height: 475px;
+    width: 525px;
     background-color: #eee;
-    overflow-y:auto;
+    /* overflow-y:auto; */
 }
 #station_list table {
     width: 100%;
