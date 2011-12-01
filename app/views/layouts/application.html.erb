@@ -11,6 +11,7 @@
 <body <%= "onload=\"alert('#{h(flash[:message])}')\"" unless flash[:message].blank? %>>
   <div id="core">
     <%= yield %>
+    <%= render :partial => 'shared/footer' %>
   </div>
 </body>
 </html>
